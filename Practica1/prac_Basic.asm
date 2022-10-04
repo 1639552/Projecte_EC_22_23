@@ -177,6 +177,17 @@ posCurScreen proc
     push ebp
 	mov  ebp, esp
 
+	mov eax, [row]
+	shl eax, 1
+	add eax, [rowScreenIni]
+	mov [rowScreen], eax
+
+	mov eax, 0
+	mov al, [col]
+	sub al, 'A'
+	shl eax, 2
+	add eax, [colScreenIni]
+	mov [colScreen], eax
 
 	mov esp, ebp
 	pop ebp
